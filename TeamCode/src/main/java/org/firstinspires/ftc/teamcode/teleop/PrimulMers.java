@@ -30,16 +30,16 @@ public class PrimulMers extends OpMode {
         if (Math.abs(gamepad1.left_stick_x) > 0.1) {
             //robotul se mișcă spre dreapta si stanga
             motor1.setPower(-x);
-            motor2.setPower(x);
-            motor3.setPower(-x);
+            motor2.setPower(-x);
+            motor3.setPower(x);
             motor4.setPower(x);
             telemetry.addData("Daca este left stick x ", "robot se misca spre stanga si dreapta");
         }
 
         if (Math.abs(gamepad1.left_stick_y) > 0.1) {//robotul merge inainte si inapoi
             motor1.setPower(-y);
-            motor2.setPower(-y);
-            motor3.setPower(y);
+            motor2.setPower(y);
+            motor3.setPower(-y);
             motor4.setPower(y);
             telemetry.addData("Daca este left stick y ", "robot merge fata si spate");
         }

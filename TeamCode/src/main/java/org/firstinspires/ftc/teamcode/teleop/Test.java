@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp(name= "Italieni")
 public class Test extends OpMode {
@@ -24,18 +25,18 @@ public class Test extends OpMode {
     }
 
     public void loop() {
-        float x = -gamepad1.left_stick_x;
-        float y = -gamepad1.left_stick_y;
-        float i = gamepad1.right_stick_x;
+        float x=-gamepad1.left_stick_y;
+        float y=gamepad1.left_stick_x;
+        float i=gamepad1.right_stick_x;
         merge(x, y, i);
 
     }
 
     public void merge(float x, float y, float z) {
-        double frontLeftPower = x + y + z;
-        double frontRightPower = x - y - z;
-        double backLeftPower = x - y + z;
-        double backRightPower = x + y - z;
+        double frontLeftPower    =  x +y +z;
+        double frontRightPower   =  x -y -z;
+        double backLeftPower     =  x -y +z;
+        double backRightPower    =  x +y -z;
         double max = Math.max(Math.max(Math.max(frontLeftPower, backLeftPower), backRightPower), frontRightPower);
         if (max > 1.0) {
             frontLeftPower /= max;
@@ -43,6 +44,7 @@ public class Test extends OpMode {
             backLeftPower /= max;
             backRightPower /= max;
         }
+
 
         motor1.setPower(frontLeftPower);
         motor2.setPower(frontRightPower);
