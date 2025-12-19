@@ -24,7 +24,7 @@ public class un_motor  extends OpMode{
 
         float mo = gamepad2.right_trigger, mi = gamepad2.left_trigger;
         if (Math.abs(mo) > 0.1) {
-            motor1.setPower(0.2);
+            motor1.setPower(0.99);
         }
 
 
