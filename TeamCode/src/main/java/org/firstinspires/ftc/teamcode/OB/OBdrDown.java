@@ -11,9 +11,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class OBdrDown extends LinearOpMode {
 
     DcMotor motor1, motor2, motor3, motor4;
-    DcMotor motor1out;
-    DcMotor motorin;
-    DcMotor motorContinuu;
 
     static final double ticks = 288.0;
     double newTarget;
@@ -33,20 +30,16 @@ public class OBdrDown extends LinearOpMode {
         motor4 = hardwareMap.get(DcMotor.class, "motor4");
         motor4.setDirection(DcMotor.Direction.REVERSE);
 
-        motor1out = hardwareMap.get(DcMotor.class, "motor1out");
-        motorin = hardwareMap.get(DcMotor.class, "motorin");
-        motorContinuu = hardwareMap.get(DcMotor.class, "motorcontinuu");
-
         waitForStart();
 
         if (opModeIsActive()) {
             pas1(a); ///ma intorc 30 grade la stanga
-            pas2();  ///arunc bilele
+           // pas2();  ///arunc bilele
             pas1(-a);/// ma intorc la -30 grade la dreapta
             pas3(b); ///merge spre dreapta, stau 7 secunde
             pas4(-b);///merge stanga
             pas1(a); ///ma intorc 30 grade la stanga
-            pas2();  ///arunc bilele
+          //  pas2();  ///arunc bilele
             pas1(-a);/// ma intorc la -30 grade la dreapta
             pas3(b); ///merge spre dreapta, stau 7 secunde
         }
@@ -64,23 +57,23 @@ public class OBdrDown extends LinearOpMode {
             motor1.setTargetPosition((int) newTarget);
             motor1.setPower(0.4);
             motor1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motor2.setTargetPosition((int) newTarget);
+            motor2.setTargetPosition((int) -newTarget);
             motor2.setPower(0.4);
             motor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motor3.setTargetPosition((int) newTarget);
             motor3.setPower(-0.4);
             motor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motor4.setTargetPosition((int) newTarget);
+            motor4.setTargetPosition((int) -newTarget);
             motor4.setPower(-0.4);
             motor4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(1000);
+            sleep(4000);
         }
     }
 
     public void pas2() {
 
-        motor1out.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motor1out.setPower(0.34);
+        //motor1out.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //motor1out.setPower(0.34);
         sleep(3000);
 
     }
@@ -98,10 +91,10 @@ public class OBdrDown extends LinearOpMode {
             motor2.setPower(0.4);
             motor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motor3.setTargetPosition((int) -newTarget);
-            motor3.setPower(0.4);
+            motor3.setPower(-0.4);
             motor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motor4.setTargetPosition((int) newTarget);
-            motor4.setPower(0.4);
+            motor4.setPower(-0.4);
             motor4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(7000);
         }
@@ -120,13 +113,13 @@ public class OBdrDown extends LinearOpMode {
             motor2.setTargetPosition((int) -newTarget);
             motor2.setPower(0.4);
             motor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motor3.setTargetPosition((int) newTarget);
-            motor3.setPower(0.4);
+            motor3.setTargetPosition((int) -newTarget);
+            motor3.setPower(-0.4);
             motor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motor4.setTargetPosition((int) -newTarget);
-            motor4.setPower(0.4);
+            motor4.setPower(-0.4);
             motor4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(1000);
+            sleep(3000);
         }
     }
 
